@@ -114,6 +114,74 @@
           }
         }
       }
+    },
+    "tester": {
+      "projectType": "library",
+      "root": "libs/tester",
+      "sourceRoot": "libs/tester/src",
+      "prefix": "nx-repro",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "libs/tester/tsconfig.lib.json",
+            "project": "libs/tester/ng-package.json"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/tester/tsconfig.lib.json",
+              "libs/tester/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/tester/jest.config.js",
+            "tsConfig": "libs/tester/tsconfig.spec.json",
+            "setupFile": "libs/tester/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "consumer": {
+      "projectType": "library",
+      "root": "libs/consumer",
+      "sourceRoot": "libs/consumer/src",
+      "prefix": "nx-repro",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "libs/consumer/tsconfig.lib.json",
+            "project": "libs/consumer/ng-package.json"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/consumer/tsconfig.lib.json",
+              "libs/consumer/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/consumer/jest.config.js",
+            "tsConfig": "libs/consumer/tsconfig.spec.json",
+            "setupFile": "libs/consumer/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
     }
   },
   "cli": {

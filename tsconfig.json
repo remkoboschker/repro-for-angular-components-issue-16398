@@ -15,7 +15,10 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@nx-repro/tester": ["dist/tester"],
+      "@nx-repro/consumer": ["dist/consumer"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
